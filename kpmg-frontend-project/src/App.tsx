@@ -17,24 +17,24 @@ function App() {
   const [query, setQuery] = useState("");
 
   // Called when user clciks "Search"
-  const handleSearch = (term : string) => {
+  const handleSearch = (term: string) => {
     setQuery(term);
-  }
+  };
 
   // Filter by query (ensure search is case-insensitive)
-  const searchResults = data.filter((item : Item) => item.first_name.toLowerCase().includes(query.toLowerCase()));
-  
+  const searchResults = data.filter((item: Item) =>
+    item.first_name.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div className="App">
       <div></div>
       <h1>Employee List</h1>
       <span className="card">
-        <SearchBar onSearch={handleSearch}/>
+        <SearchBar onSearch={handleSearch} />
       </span>
       <br></br>
-      <DataTable data={searchResults}/>
-      
+      <DataTable data={searchResults} />
     </div>
   );
 }

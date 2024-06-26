@@ -1,7 +1,7 @@
 import React from "react";
 import { data } from "../data";
 
-const DataTable = ({data} : {data:any}) => {
+const DataTable = ({ data }: { data: any }) => {
   return (
     <>
       <table className="table table-bordered table-striped-columns">
@@ -14,7 +14,7 @@ const DataTable = ({data} : {data:any}) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item : any) => {
+          {data.map((item: any) => {
             return (
               <tr key={item.id}>
                 <td>{item.first_name}</td>
@@ -28,6 +28,6 @@ const DataTable = ({data} : {data:any}) => {
       </table>
     </>
   );
-}
+};
 
 export default DataTable;
