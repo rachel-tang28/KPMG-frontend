@@ -1,34 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import DataTable from "./components/DataTable";
+import SearchBar from "./components/SearchBar";
+import { data } from "./data";
+
+interface Item {
+  id: number;
+  first_name: string;
+  last_name: string;
+  role: string;
+  division: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Manage state of query
+  const [query, setQuery] = useState("");
+
+  // Called when user clciks "Search"
+  const handleSearch = (term : string) => {
+    setQuery(term);
+  }
+
+  // Filter by query (ensure search is case-insensitive)
+  const searchResults = data.filter((item : Item) => item.first_name.toLowerCase().includes(query.toLowerCase()));
+  
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div></div>
+      <h1>Employee List</h1>
+      <span className="card">
+        <SearchBar onSearch={handleSearch}/>
+      </span>
+      <br></br>
+      <DataTable data={searchResults}/>
+      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
