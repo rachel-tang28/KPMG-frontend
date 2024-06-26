@@ -1,8 +1,6 @@
 # KPMG Frontend Task: Employee List Search
 > **Author:** Rachel Tang
 
-<br />
-
 ## Background
 This application allows users to search through a list of employee names and filter results according to user input, based on the employee's firstname.
 
