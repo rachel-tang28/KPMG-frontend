@@ -27,15 +27,23 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <div></div>
-      <h1>Employee List</h1>
-      <span className="card">
-        <SearchBar onSearch={handleSearch} />
-      </span>
-      <br></br>
-      <DataTable data={searchResults} />
-    </div>
+    <>
+      <div className="App">
+        <div>
+          <h1>Employee List</h1>
+        </div>
+        <div className="container">
+          <div className="searchbox">
+            <span className="card">
+              <SearchBar onSearch={handleSearch} />
+            </span>
+          </div>
+          <div className="table">
+            <DataTable data={searchResults} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
