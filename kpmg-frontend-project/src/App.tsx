@@ -3,14 +3,7 @@ import "./App.css";
 import DataTable from "./components/DataTable";
 import SearchBar from "./components/SearchBar";
 import { data } from "./data";
-
-interface Item {
-  id: number;
-  first_name: string;
-  last_name: string;
-  role: string;
-  division: string;
-}
+import { DataEntry } from "./data";
 
 function App() {
   // Manage state of query
@@ -22,7 +15,7 @@ function App() {
   };
 
   // Filter by query (ensure search is case-insensitive)
-  const searchResults = data.filter((item: Item) =>
+  const searchResults = data.filter((item: DataEntry) =>
     item.first_name.toLowerCase().includes(query.toLowerCase())
   );
 

@@ -1,3 +1,11 @@
+export interface DataEntry {
+  id: number;
+  first_name: string;
+  last_name: string;
+  role: string;
+  division: string;
+}
+
 // Some data generated via. https://www.mockaroo.com
 export const data = [
   { 
